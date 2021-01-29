@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+:root {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+header h1 {
+  background-color: #c7cfb7;
+  color: #323232;
+  text-align: center;
+  letter-spacing: 4px;
+  padding: 70px 0px;
+}
+
+header nav {
+  background-color: #557174;
+  color: #f7f7e8;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav li {
+  width: 100px;
+  height: 100%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav li a {
+  color: #c7cfb7;
+}
+
+header nav li:hover {
+  cursor: pointer;
+  background-color: #f7f7e8;
+  color: #557174;
+}
+
+header nav li:hover a {
+  color: #557174;
+}
+
+section, .reverse {
+  height: 500px;
+  overflow: hidden;
+  width: 80%;
+  margin: 100px auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 600px))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 600px));
+  gap: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section .box-img img, .reverse .box-img img {
+  max-width: 100%;
+}
+
+section .box-ct p, .reverse .box-ct p {
+  font-size: 1.3rem;
+  color: #1687a7;
+  text-align: right;
+}
+
+.reverse .box-ct p {
+  text-align: left;
+}
+
+footer {
+  background-color: #323232;
+  color: #c7cfb7;
+  padding: 30px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(100px, 50%))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(100px, 50%));
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .top {
+  text-align: center;
+}
+
+footer .top a {
+  color: #c7cfb7;
+}
+
+@media all and (max-width: 600px) {
+  :root {
+    font-size: 13px;
+  }
+  section, .reverse {
+    margin: 0px auto 50px;
+    width: 100%;
+  }
+  section .box-ct, .reverse .box-ct {
+    padding: 10px;
+  }
+  section .box-ct p, .reverse .box-ct p {
+    text-align: center;
+  }
+  .reverse .box-img {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+  }
+  .reverse .box-ct {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+  }
+}
+/*# sourceMappingURL=style.css.map */
