@@ -37,19 +37,27 @@ header {
         list-style-type: none;
         display: flex;
         height: 50px;
-        justify-content: center;
-        align-items: center;
+        
 
         li{
             width: 100px;
             height: 100%;
             text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
 
             a{
                 color: $primary;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .active-link{
+            background-color: $secondary;
+            a{
+                color: $tertiary;
             }
         }
         li:hover{
@@ -70,11 +78,10 @@ section {
     overflow: hidden;
     width: 80%;
     margin: 100px auto;
-
+    position: relative;
     display: grid;
-    grid-template-columns:  repeat(auto-fit,minmax(300px,600px));
+    grid-template-columns:  repeat(2,minmax(100px,600px));
     gap: 10px;
-
     justify-content: center;
     align-items: center;
     .box-img { 
@@ -91,7 +98,15 @@ section {
             text-align: right;
         }
     }
+    .shape{
+        position: absolute;
+        z-index: -100;
+        opacity: 0;
+    }
+    
 }
+
+
 
 .reverse {
     @extend section;
@@ -108,7 +123,7 @@ footer{
     padding: 30px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px,50%));
+    grid-template-columns: repeat(auto-fit, minmax(300px,600px));
     justify-content: center;
     align-items: center;
 
@@ -118,6 +133,146 @@ footer{
             color: $primary;
         }
     }
+
+    .info{
+        font-size: 1rem;
+    }
+}
+
+.screen{
+    margin: 0px auto;
+    
+    height: 600px;
+    background-image: url('./images/pexels-fauxels-31842964.jpg');
+    background-size: cover;
+    position: relative;
+    p{
+        background-color: $secondary;
+        height: 100%;
+        width: 100%;
+        filter: opacity(0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.3rem;
+        font-weight: 700;
+        color: $secondary;
+        position: relative;
+        span{
+            padding: 0px 10px;
+            letter-spacing: 1px;
+            background-color: rgb(33, 135, 175);
+        }
+        
+    }
+    .show{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        font-size: 2.3rem;
+        top: 60%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        span{
+            display: inline-block;
+            height: 60px;
+            margin-left: 20px;
+            overflow: hidden;
+        }
+        ul{
+            display: inline-block;
+            list-style: none;
+            text-align: left;
+            animation: slideUp 5s infinite;
+        }
+
+        @keyframes slideUp {
+            20%{
+                transform: translateY(0px);
+            }
+            50%{
+                transform: translateY(-50px);
+
+            }
+            100%{
+                transform: translateY(-110px);
+            }
+        }
+    }
+
+}
+.info{
+    width: 100%;
+    margin: 0;
+}
+
+.info{
+    margin: 40px auto;
+    width: 90%;
+    font-size: 1.3rem;
+
+    p{
+        margin: 40px 0px;
+    }
+}
+
+form{
+    background-color: $tertiary;
+    width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+
+    h1{
+        text-align: center;
+        color: $secondary;
+        font-weight: 200;
+    }
+    .input-block{
+        width: 100%;
+        margin: 30px 0px;
+        font-family: 'Poppins', sans-serif;;
+
+        input{
+            display: inline-block;
+            width: 100%;
+            height: 40px;
+            font-size: 1.2rem;
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            padding-left: 20px;
+            box-sizing: border-box
+        }
+        textarea{
+            @extend input;
+            height: 300px;
+        }
+
+        input::placeholder, textarea::placeholder{
+            font-family: 'Poppins', sans-serif;
+        }
+
+        input[type="submit"]{
+            background-color: $headingColor;
+            color: $secondary;
+            width: 200px;
+        }
+    }
+}
+
+//hove effects
+section:hover{
+    // background-color: #dddddd;
+
+    .shape{
+        transform: translate(60px,50px);
+        position: absolute;
+        z-index: -100;
+        opacity: 1;
+        transition: .7s ease-in-out;
+    }
 }
 
 @media all and ( max-width : 600px)
@@ -125,17 +280,28 @@ footer{
     :root{
         font-size: 13px;
     }
+    nav{
+        justify-content: center;
+        align-items: center;
+    }
 
     section{
         margin: 0px auto 50px;
         width: 100%;
-
+        height: 100%;
+        grid-template-columns: 1fr;
+        
         .box-ct{
             padding: 10px;
             p{
                 text-align: center;
             }
         }
+    }
+
+    footer{
+        grid-template-columns: 3fr 1fr;
+        padding: 10px;
     }
 
     .reverse{
@@ -147,4 +313,50 @@ footer{
         }
     }
 
+    .screen{
+        height: 300px;
+        .show{
+            align-items: center;
+            span{
+                height: 40px;
+            }
+            @keyframes slideUp {
+                20%{
+                    transform: translateY(0px);
+                }
+                50%{
+                    transform: translateY(-45px);
+    
+                }
+                100%{
+                    transform: translateY(-90px);
+                }
+            }
+        }
+    }
+    form{
+        width: 400px;
+        margin: 20px auto;
+    }
+
+    section:hover {
+        .box-ct {
+            p{
+                color: $headingColor;
+                transition: 1.3s;
+            }
+        }
+        
+    }
+}
+
+@media all and (min-width: 650px){
+    section:hover{
+        .box-img{
+            img{
+                box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.685);
+                transition: 1.4s;
+            }
+        }
+    }
 }
